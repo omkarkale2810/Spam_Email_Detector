@@ -1,93 +1,127 @@
-/* General styling for body */
+/* Modern color scheme and base styles */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --background-color: #f5f6fa;
+    --success-color: #2ecc71;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-}
-
-/* Style the form container */
-form {
-    background: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header styling */
+h1 {
+    color: var(--primary-color);
     text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--accent-color);
 }
 
-/* Heading style */
-h2 {
-    color: #444;
-    margin-bottom: 20px;
-    font-size: 24px;
+/* Metrics section styling */
+p {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
 }
 
-/* Style for textarea input */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+li {
+    background: white;
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+}
+
+/* Form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
 textarea {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: var(--border-radius);
     font-size: 16px;
+    transition: border-color 0.3s ease;
     resize: vertical;
-    transition: border-color 0.3s;
+    font-family: inherit;
 }
 
 textarea:focus {
-    border-color: #007bff;
     outline: none;
+    border-color: var(--accent-color);
 }
 
-/* Button style */
 input[type="submit"] {
-    background-color: #007bff;
+    background-color: var(--accent-color);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: var(--border-radius);
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
     transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
 
-/* Style the prediction result container */
-.prediction-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    text-align: center;
-}
-
-/* Style for the result text */
-p {
-    font-size: 18px;
-    margin: 20px 0;
-    color: #333;
-}
-
-/* Back link styling */
-a {
-    display: inline-block;
-    text-decoration: none;
-    color: #007bff;
-    margin-top: 20px;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #0056b3;
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    ul {
+        grid-template-columns: 1fr;
+    }
+    
+    form {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
 }

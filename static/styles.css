@@ -1,0 +1,152 @@
+/* Base styles matching the previous design */
+:root {
+    --primary-color: #2c3e50;
+    --spam-color: #e74c3c;
+    --safe-color: #2ecc71;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+/* Result container styling */
+.result-container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    width: 90%;
+    animation: slideIn 0.5s ease-out;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Prediction text styling */
+.prediction {
+    font-size: 1.5em;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Spam-specific styling */
+.spam {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--spam-color);
+    animation: 
+        fadeIn 0.5s ease-out forwards,
+        pulseRed 2s infinite;
+}
+
+/* Not-spam specific styling */
+.not-spam {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--safe-color);
+    animation: 
+        fadeIn 0.5s ease-out forwards,
+        pulseGreen 2s infinite;
+}
+
+/* Back button styling */
+a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 1s;
+}
+
+a:hover {
+    transform: translateY(-2px);
+    background-color: #34495e;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulseRed {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+    }
+}
+
+@keyframes pulseGreen {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .result-container {
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .prediction {
+        font-size: 1.2em;
+    }
+}
